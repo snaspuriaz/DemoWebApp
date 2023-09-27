@@ -13,12 +13,16 @@ namespace DemoWebApp.Pages
         //{
         //    _logger = logger;
         //}
-
+        private readonly IProductService _ProdService;
+        public IndexModel(IProductService productService)
+        {
+            _ProdService = productService;
+        }
         public List<Product> _Prods;
         public void OnGet()
         {
-            ProductService prodSer = new ProductService();
-              _Prods = prodSer.GetProducts();
+            //ProductService prodSer = new ProductService();
+              _Prods = _ProdService.GetProducts();
 
         }
     }
